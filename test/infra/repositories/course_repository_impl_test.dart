@@ -7,13 +7,19 @@ import '../../mocks/FirestoreMock.dart';
 
 void main() async {
   final FirestoreMock _mock = FirestoreMock();
-  CourseRepository _repository = CourseRepositoryImpl(_mock.setCourseData());
+  final CourseRepository _repository = CourseRepositoryImpl(_mock.setCourseData());
+
   group("Course Repository test", () {
     test("getCourseById", () async {
       DocumentSnapshot course =
-          await _repository.getCourseById(id:"JKvhYXcuDsUhKrgbvYP7");
-        expect(true, course.exists);
-        expect("Auxiliar de Enfermagem", course.get("nome"));
+          await _repository.getCourseById(id: "JKvhYXcuDsUhKrgbvYP7");
+      expect(true, course.exists);
+      expect("Auxiliar de Enfermagem", course.get("nome"));
+    });
+
+    test("getAllCourses", () async {
+      Stream<QuerySnapshot> course = _repository.getAllCourse();
+
     });
   });
 }
