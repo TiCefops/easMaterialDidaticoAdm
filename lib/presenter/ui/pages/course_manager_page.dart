@@ -9,6 +9,6 @@ class CourseManagerPage extends GetView<CourseManagerController> {
 
   @override
   Widget build(BuildContext context) {
-    return AppSkelecte(child:const Center(child:  Text("Cursos"),));
+    return AppSkeleton(child:const Center(child:  Text("Cursos"),));
   }
 }

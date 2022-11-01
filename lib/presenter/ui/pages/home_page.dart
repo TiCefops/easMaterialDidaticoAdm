@@ -10,7 +10,7 @@ class HomePage extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    return AppSkelecte(
+    return AppSkeleton(
         child:Container(child: Text("Home"),));
   }
 }

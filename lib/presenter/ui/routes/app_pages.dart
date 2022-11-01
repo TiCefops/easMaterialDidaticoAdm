@@ -1,4 +1,6 @@
 
+import 'package:easmaterialdidaticoadm/presenter/ui/binding/group_bindng.dart';
+import 'package:easmaterialdidaticoadm/presenter/ui/pages/group_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:get/get.dart';
@@ -25,5 +27,10 @@ class AppPages {
         page: () => UserManagerPage(),
         transition: Transition.noTransition,
         binding: UserManagerBindings()),
+    GetPage(
+        name: Routes.groupManager,
+        page: () => GroupPage(),
+        transition: Transition.noTransition,
+        binding: GroupBindings()),
   ];
 }

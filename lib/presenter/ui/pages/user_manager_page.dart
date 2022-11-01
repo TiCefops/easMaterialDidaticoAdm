@@ -10,7 +10,7 @@ class UserManagerPage extends GetView<UserManagerController> {
 
   @override
   Widget build(BuildContext context) {
-    return AppSkelecte(
+    return AppSkeleton(
         child: SizedBox(
       child: StreamBuilder(
         stream: controller.getAll(),

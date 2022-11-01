@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'navigation_drawer_widget.dart';
 
-class AppSkelecte extends StatelessWidget {
-  const AppSkelecte({Key? key, required this.child}) : super(key: key);
+class AppSkeleton extends StatelessWidget {
+  const AppSkeleton({Key? key, required this.child}) : super(key: key);
     final Widget child;
   @override
   Widget build(BuildContext context) {

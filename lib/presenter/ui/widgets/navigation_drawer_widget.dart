@@ -43,7 +43,7 @@ class NavigationDrawerWidget {
         ListTile(
           leading: const Icon(Icons.work),
           onTap: () {
-            Get.offAndToNamed(Routes.courseManager);
+            Get.offAndToNamed(Routes.groupManager);
           },
           title: const Text("Gerenciar Turmas"),
         ),

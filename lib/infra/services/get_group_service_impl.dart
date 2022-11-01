@@ -1,6 +1,6 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:easmaterialdidaticoadm/domain/services/get_group_service.dart';
+import 'package:easmaterialdidaticoadm/domain/usercases/get_group_service.dart';
 
 import '../../domain/repositories/course_repository.dart';
 import '../repositories/course_repository_impl.dart';
