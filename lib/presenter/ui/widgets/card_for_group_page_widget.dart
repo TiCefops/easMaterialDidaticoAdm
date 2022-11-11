@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:easmaterialdidaticoadm/infra/model/group_model.dart';
 import 'package:easmaterialdidaticoadm/presenter/ui/controller/group_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -12,7 +11,7 @@ class CardForPageWidget extends StatelessWidget {
   final List<QueryDocumentSnapshot<Object?>> snapshot;
 
    CardForPageWidget({Key? key, required this.snapshot}) : super(key: key);
-final GroupController controller=Get.put(GroupController());
+final GroupController controller=Get.find<GroupController>();
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
