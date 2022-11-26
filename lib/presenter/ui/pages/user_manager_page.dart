@@ -6,10 +6,11 @@ import '../widgets/app_pages_skeleton.dart';
 import '../widgets/user_card_widget.dart';
 
 class UserManagerPage extends GetView<UserManagerController> {
-  const UserManagerPage({Key? key}) : super(key: key);
+   UserManagerPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+
     return AppSkeleton(
         child: SizedBox(
       child: StreamBuilder(

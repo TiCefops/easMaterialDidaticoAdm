@@ -1,6 +1,8 @@
 
 import 'package:easmaterialdidaticoadm/presenter/ui/binding/group_bindng.dart';
+import 'package:easmaterialdidaticoadm/presenter/ui/binding/login_bindings.dart';
 import 'package:easmaterialdidaticoadm/presenter/ui/pages/group_page.dart';
+import 'package:easmaterialdidaticoadm/presenter/ui/pages/login_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:get/get.dart';
@@ -22,6 +24,16 @@ class AppPages {
         page: () => HomePage(),
         transition: Transition.noTransition,
         binding: HomeBindings()),
+    GetPage(
+        name: Routes.home,
+        page: () => HomePage(),
+        transition: Transition.noTransition,
+        binding: HomeBindings()),
+    GetPage(
+        name: Routes.login,
+        page: () =>const LoginPage(),
+        transition: Transition.noTransition,
+        binding: LoginBindings()),
     GetPage(
         name: Routes.userManager,
         page: () => UserManagerPage(),

@@ -10,7 +10,7 @@ class ModuleEdit extends GetView<GroupController> {
 
   @override
   Widget build(BuildContext context) {
-    List<Map<String, dynamic>> modulos = modulosFormated();
+    List<Map<String, dynamic>> modulesList = modulesFormatted();
     return Column(
       children: [
         SizedBox(
@@ -29,12 +29,12 @@ class ModuleEdit extends GetView<GroupController> {
                           courseId: group["courseId"]),
                       builder: (context, snapshot) {
                         if (snapshot.hasData) {
-                          modulosFormated().forEach((modulesAdd) {
+                          modulesFormatted().forEach((modulesAdd) {
                             snapshot.data!.removeWhere((element) =>
                                 element["id"] == modulesAdd["moduloId"]);
                             if (snapshot.data!.isEmpty) {
                               snapshot.data
-                                  ?.add({"nome": "nenhum módulo disponivel"});
+                                  ?.add({"nome": "nenhum módulo disponível"});
                             }
                           });
                           controller.selectValuesForMenu(snapshot.data!.first);
@@ -69,9 +69,7 @@ class ModuleEdit extends GetView<GroupController> {
                     ? const Center(child: CircularProgressIndicator())
                     : IconButton(
                         onPressed: () async {
-
-                          await controller.setModule(
-                              turmaId: group["id"]);
+                          await controller.setModule(turmaId: group["id"]);
                         },
                         icon: const Icon(Icons.add));
               })
@@ -85,7 +83,7 @@ class ModuleEdit extends GetView<GroupController> {
               Checkbox(
                   value: group["mostrar"],
                   onChanged: (value) {
-                    print(value);
+
                   })
             ],
           ),
@@ -95,7 +93,7 @@ class ModuleEdit extends GetView<GroupController> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text("Módoulos"),
+              const Text("Módulos"),
               const SizedBox(
                 width: 40,
               ),
@@ -103,13 +101,20 @@ class ModuleEdit extends GetView<GroupController> {
                   width: 320,
                   height: 120,
                   child: ListView.builder(
-                      itemCount: modulos.length,
+                      itemCount: modulesList.length,
                       itemBuilder: (BuildContext context, index) {
                         return Row(
                           children: [
-                            Text(modulos[index]["nomeModulo"]),
+                            Text(modulesList[index]["nomeModulo"]),
                             IconButton(
-                                onPressed: () {},
+                                onPressed: () async {
+                                  await controller
+                                      .removeModuleById(
+                                          turmaId: group["id"],
+                                          module: modulesList[index])
+                                      .then((value) => modulesList.removeAt(index));
+                                  controller.update();
+                                },
                                 icon: const Icon(Icons.remove))
                           ],
                         );
@@ -121,14 +126,14 @@ class ModuleEdit extends GetView<GroupController> {
     );
   }
 
-  List<Map<String, dynamic>> modulosFormated() {
-    List<dynamic> modulosFormatter = [];
-    List<Map<String, dynamic>> modulos = [];
+  List<Map<String, dynamic>> modulesFormatted() {
+    List<dynamic> modulesFormatter = [];
+    List<Map<String, dynamic>> modules = [];
 
-    modulosFormatter.addAll(group["modulos"]);
-    for (var element in modulosFormatter) {
-      modulos.add(element);
+    modulesFormatter.addAll(group["modulos"]);
+    for (var element in modulesFormatter) {
+      modules.add(element);
     }
-    return modulos;
+    return modules;
   }
 }

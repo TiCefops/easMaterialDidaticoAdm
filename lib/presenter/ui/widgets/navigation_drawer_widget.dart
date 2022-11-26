@@ -28,7 +28,7 @@ class NavigationDrawerWidget {
         ListTile(
           leading: const Icon(Icons.person),
           onTap: () {
-            Get.offAndToNamed(Routes.userManager);
+            // Get.offAndToNamed(Routes.userManager);
           },
           title: const Text("Gerenciar Usuários"),
         ),

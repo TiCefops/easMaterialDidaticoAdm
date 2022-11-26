@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:easmaterialdidaticoadm/infra/model/group_model.dart';
 
 import '../../domain/repositories/group_repository.dart';
 
@@ -25,9 +24,7 @@ class GroupRepositoryImpl implements GroupRepository {
   @override
   Future<void> updateModuleById({required String turmaId,required String moduleName,required String moduleId}) async{
     CollectionReference data = firestore.collection('turmas');
-print(turmaId);
-print(moduleName);
-print(moduleId);
+
 
     await data.doc(turmaId).set({"modulos": FieldValue.arrayUnion([{
       "dataFim": "2022 00:00:00",
@@ -36,6 +33,21 @@ print(moduleId);
       "moduloId": moduleId,
       "nomeModulo": moduleName
     }
+    ])}, SetOptions(merge: true));
+  }
+
+  @override
+  Future<void> showGroupToSingIn({required String groupId,required bool currentValue}) async{
+    CollectionReference data = firestore.collection('turmas');
+   await data.doc(groupId).update({"mostrar":!currentValue});
+  }
+
+  @override
+  Future<void> removeModuleById({required String turmaId, required Map<String, dynamic> module})async {
+    CollectionReference data = firestore.collection('turmas');
+
+
+    await data.doc(turmaId).set({"modulos": FieldValue.arrayRemove([module
     ])}, SetOptions(merge: true));
   }
 

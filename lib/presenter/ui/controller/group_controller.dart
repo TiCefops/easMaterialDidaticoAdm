@@ -42,6 +42,15 @@ class GroupController extends GetxController {
   Stream<QuerySnapshot> getAllGroup() async* {
     yield* groupService.getAllGroup();
   }
+  Future<void> showGroupToSingIn({required String groupId,required bool currentValue})async{
+
+    await groupService.showGroupToSingIn(groupId: groupId, currentValue: currentValue);
+  }
+  Future<void> removeModuleById({required String turmaId,required Map<String,dynamic> module})async{
+    await groupService.removeModuleById(turmaId: turmaId, module: module);
+
+  }
+
 
   @override
   void onClose() {

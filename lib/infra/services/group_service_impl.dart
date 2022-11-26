@@ -2,7 +2,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easmaterialdidaticoadm/domain/repositories/group_repository.dart';
 import 'package:easmaterialdidaticoadm/domain/usercases/group_services.dart';
-import 'package:easmaterialdidaticoadm/infra/model/group_model.dart';
 
 class GroupServiceImpl implements GroupService{
 
@@ -24,5 +23,15 @@ class GroupServiceImpl implements GroupService{
   @override
   Stream<QuerySnapshot> getAllGroup() async*{
     yield* _repository.getAllGroup();
+  }
+
+  @override
+  Future<void> showGroupToSingIn({required String groupId,required bool currentValue}) async{
+ await _repository.showGroupToSingIn(groupId: groupId, currentValue: currentValue);
+  }
+
+  @override
+  Future<void> removeModuleById({required String turmaId, required Map<String, dynamic> module})async {
+  await _repository.removeModuleById(turmaId: turmaId, module: module);
   }
 }

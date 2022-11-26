@@ -1,17 +1,18 @@
-import 'dart:convert';
+
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easmaterialdidaticoadm/presenter/ui/controller/group_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'module_edit.dart';
+import 'module_edit_widget.dart';
 
 class CardForPageWidget extends StatelessWidget {
   final List<QueryDocumentSnapshot<Object?>> snapshot;
 
-   CardForPageWidget({Key? key, required this.snapshot}) : super(key: key);
-final GroupController controller=Get.find<GroupController>();
+  CardForPageWidget({Key? key, required this.snapshot}) : super(key: key);
+  final GroupController controller = Get.find<GroupController>();
+
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
@@ -19,7 +20,7 @@ final GroupController controller=Get.find<GroupController>();
         itemBuilder: (BuildContext context, int index) {
           List data = snapshot[index].get("modulos");
           String aceitandoCadastro =
-          snapshot[index].get("mostrar") ? "Habilitado" : "Desabilitado";
+              snapshot[index].get("mostrar") ? "Habilitado" : "Desabilitado";
           return InkWell(
             child: Card(
               color: Colors.white,
@@ -34,21 +35,31 @@ final GroupController controller=Get.find<GroupController>();
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       TextButton(
-                        onPressed: () {},
-                        child: Text(snapshot[index].get("mostrar")
-                            ? "Desabilitar Cadastro"
-                            : "Aceitar Cadastro"),
+                        onPressed: () {
+                          controller.showGroupToSingIn(
+                              groupId: snapshot[index].get("id"),
+                              currentValue: snapshot[index].get("mostrar"));
+                        },
+                        child: Text(
+                          snapshot[index].get("mostrar")
+                              ? "Desabilitar Cadastro"
+                              : "Aceitar Cadastro",
+                          style: TextStyle(
+                              color: snapshot[index].get("mostrar")
+                                  ? Colors.red
+                                  : Colors.green),
+                        ),
                       ),
                       TextButton(
-                        onPressed: ()async {
-                          Map<String, dynamic> data=snapshot[index].data() as Map<String, dynamic>;
+                        onPressed: () async {
+                          Map<String, dynamic> data =
+                              snapshot[index].data() as Map<String, dynamic>;
 
-
-                          Get.defaultDialog(title: snapshot[index].get("nome"),
-                          content: ModuleEdit(group: data,)
-
-                          );
-
+                          Get.defaultDialog(
+                              title: snapshot[index].get("nome"),
+                              content: ModuleEdit(
+                                group: data,
+                              ));
                         },
                         child: Text("Editar"),
                       ),

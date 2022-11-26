@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: "EAS Material Didático ADM",
-      initialRoute: Routes.initial,
+      initialRoute: Routes.login,
       getPages:AppPages.routes,
 
     );
