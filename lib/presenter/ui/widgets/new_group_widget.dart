@@ -38,7 +38,7 @@ class NewGroupWidget extends GetView<GroupController> {
               children: [
                 const Expanded(child: SizedBox()),
                 IconButton(
-                    onPressed: () {}, icon: Icon(Icons.arrow_forward_sharp))
+                    onPressed: () {}, icon: const Icon(Icons.arrow_forward_sharp))
               ],
             )
           ],

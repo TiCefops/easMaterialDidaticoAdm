@@ -27,11 +27,26 @@ class GroupPage extends GetView<GroupController> {
    }
     return AppSkeleton(
       button: FloatingActionButton(onPressed: () {
-
-        Get.defaultDialog(
-          title: "Nova  Turma",
-          content:const NewGroupWidget()
-        );
+Get.defaultDialog(title: "Função Sendo Implementada",
+content:  Center(
+  child: Column(
+    children:const [
+      Text("Esta função ainda não esta disponível."),
+      Text("Aguarde a proxima att"),
+      SizedBox(
+        height: 30,
+      ),
+      CircularProgressIndicator(
+        color: AppColors.blue,
+        backgroundColor: AppColors.orange,
+      ),
+    ],
+  ),
+));
+        // Get.defaultDialog(
+        //   title: "Nova  Turma",
+        //   content:const NewGroupWidget()
+        // );
 
       },child:const Icon(Icons.add),),
       child: SizedBox(
