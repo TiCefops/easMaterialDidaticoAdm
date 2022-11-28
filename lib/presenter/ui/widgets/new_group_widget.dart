@@ -39,11 +39,12 @@ class NewGroupWidget extends GetView<GroupController> {
                           (CourseEntity value) {
                         return DropdownMenuItem<CourseEntity>(
                           value: value,
-                          child: Text(controller.selectedCourseName.value),
+                          child: Text(value.nome!),
                         );
                       }).toList(),
                     );
-                  });
+                  })
+                  ;
                 }
                 return const CircularProgressIndicator();
               },
