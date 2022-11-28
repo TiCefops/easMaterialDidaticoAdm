@@ -11,6 +11,7 @@ class FirestoreMock {
     final instance = FakeFirebaseFirestore();
     instance.collection('cursos').doc("JKvhYXcuDsUhKrgbvYP7").set({
       'ativo': true,
+      'receberCadastro': true,
       'firstModule': '40MS5oEwxYLQDBUtVZwj',
       'id': 'JKvhYXcuDsUhKrgbvYP7',
       'nome': 'Auxiliar de Enfermagem'
@@ -18,6 +19,7 @@ class FirestoreMock {
 
     instance.collection('cursos').add({
       'ativo': true,
+      'receberCadastro': true,
       'firstModule': '1zmJvcLymGdBB3wb7Vtd',
       'id': 'xBzfxiqVvIiDvKpEvKja',
       'nome': 'Técnico de Enfermagem'
