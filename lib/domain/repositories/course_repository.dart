@@ -1,7 +1,8 @@
 
-import 'package:cloud_firestore/cloud_firestore.dart';
+
+import '../entities/course_entity.dart';
 
 abstract class CourseRepository{
-  Future<DocumentSnapshot> getCourseById({required String id});
-  Stream<QuerySnapshot> getAllCourse();
+  Future<CourseEntity> getCourseById({required String id});
+  Future<List<CourseEntity>> getAllCourse();
 }

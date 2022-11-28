@@ -1,6 +1,8 @@
 
-import 'package:cloud_firestore/cloud_firestore.dart';
+
+import '../../domain/entities/course_entity.dart';
 
 abstract class CourseDataSource{
-  Future<CollectionReference> courseDb();
+  Future<List<CourseEntity>> getAllCourses();
+  Future<CourseEntity> getCourseById({required String id});
 }
