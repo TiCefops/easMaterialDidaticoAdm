@@ -51,4 +51,13 @@ class GroupRepositoryImpl implements GroupRepository {
     ])}, SetOptions(merge: true));
   }
 
+  @override
+  Future<void> createNewGroup({required Map<String, dynamic> groupData}) async {
+    CollectionReference data = firestore.collection('turmas');
+
+    await data.add(groupData).then((value) async{
+      await data.doc(value.id).update({"id":value.id});
+    });
+  }
+
 }

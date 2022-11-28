@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:easmaterialdidaticoadm/infra/services/get_group_service_impl.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -60,23 +59,23 @@ class UserCardWidget extends StatelessWidget {
     );
 
   }
-  Future<String> setCurso(DocumentSnapshot data)async{
-    final GetGroupServiceImpl services=GetGroupServiceImpl();
-    String turma="";
-    try{
-
-      turma=await data.get("turma");
-
-      DocumentSnapshot serv= await services.getGroup(turma);
-      turma=serv.get("nome");
-
-    }catch(e){
-      turma="N/D";
-
-    }
-
-    return turma;
-  }
+  // Future<String> setCurso(DocumentSnapshot data)async{
+  //   final GetGroupServiceImpl services=GetGroupServiceImpl();
+  //   String turma="";
+  //   try{
+  //
+  //     turma=await data.get("turma");
+  //
+  //     DocumentSnapshot serv= await services.getGroup(turma);
+  //     turma=serv.get("nome");
+  //
+  //   }catch(e){
+  //     turma="N/D";
+  //
+  //   }
+  //
+  //   return turma;
+  // }
 
 }
 

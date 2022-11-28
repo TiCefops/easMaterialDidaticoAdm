@@ -1,14 +1,15 @@
 
-import 'package:easmaterialdidaticoadm/presenter/ui/binding/group_bindng.dart';
-import 'package:easmaterialdidaticoadm/presenter/ui/binding/login_bindings.dart';
-import 'package:easmaterialdidaticoadm/presenter/ui/pages/group_page.dart';
-import 'package:easmaterialdidaticoadm/presenter/ui/pages/login_page.dart';
+
 import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:get/get.dart';
 
+import '../binding/group_bindng.dart';
 import '../binding/home_binding.dart';
+import '../binding/login_bindings.dart';
 import '../binding/user_manager_bindings.dart';
+import '../pages/group_page.dart';
+import '../pages/login_page.dart';
 import './routes.dart';
 import '../pages/home_page.dart';
 import '../pages/user_manager_page.dart';
@@ -44,5 +45,6 @@ class AppPages {
         page: () => GroupPage(),
         transition: Transition.noTransition,
         binding: GroupBindings()),
+
   ];
 }

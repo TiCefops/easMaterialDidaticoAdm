@@ -8,6 +8,8 @@ abstract class Routes{
   static const userManager = '/user-manager';
   static const courseManager = '/course-manager';
   static const groupManager = '/group-manager';
+  static const newGroup = '/new-group';
+
 
 
 

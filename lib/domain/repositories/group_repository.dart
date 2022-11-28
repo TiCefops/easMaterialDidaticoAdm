@@ -8,4 +8,6 @@ abstract class GroupRepository{
   Future<void> updateModuleById({required String turmaId,required String moduleName,required String moduleId});
   Future<void> removeModuleById({required String turmaId,required Map<String,dynamic> module});
   Stream<QuerySnapshot> getAllGroup();
+  Future<void> createNewGroup({required Map<String,dynamic> groupData});
+
 }

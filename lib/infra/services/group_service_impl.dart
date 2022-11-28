@@ -1,7 +1,7 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easmaterialdidaticoadm/domain/repositories/group_repository.dart';
-import 'package:easmaterialdidaticoadm/domain/usercases/group_services.dart';
+import 'package:easmaterialdidaticoadm/domain/usercases/group/group_services.dart';
 
 class GroupServiceImpl implements GroupService{
 
@@ -33,5 +33,10 @@ class GroupServiceImpl implements GroupService{
   @override
   Future<void> removeModuleById({required String turmaId, required Map<String, dynamic> module})async {
   await _repository.removeModuleById(turmaId: turmaId, module: module);
+  }
+
+  @override
+  Future<void> createNewGroup({required Map<String, dynamic> groupData}) async {
+await  _repository.createNewGroup(groupData: groupData);
   }
 }

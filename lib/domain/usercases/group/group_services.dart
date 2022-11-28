@@ -6,5 +6,6 @@ abstract class GroupService{
   Future<void> showGroupToSingIn({required String groupId,required bool currentValue});
   Future<void> setModule(String turmaId,String moduleId,String moduleName);
   Future<void> removeModuleById({required String turmaId,required Map<String,dynamic> module});
+  Future<void> createNewGroup({required Map<String,dynamic> groupData});
 
 }
